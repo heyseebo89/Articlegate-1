@@ -19,5 +19,5 @@ Install dependencies
 Start the server
 
 ```bash
-  python mange.py runserver
+  python manage.py runserver
 ```

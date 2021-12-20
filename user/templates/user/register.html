@@ -39,6 +39,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
+
+    <style>
+      .cont {
+        border: 1px solid gray;
+        max-width: 600px;
+        border-radius: 7px;
+      }
+
+      .cont button {
+        background-color: #ed64a6;
+        color: white;
+      }
+    </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
@@ -51,24 +64,23 @@
                 <div class="card-body p-md-2">
                   <div class="row justify-content-center">
                     <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-      
-                      <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-1 mt-4">ArticleGate-Signup</p>
-      
+                      <div class="container cont">
+                        <p class="text-center h1 fw-bold mb-3 mx-1 mx-md-1 mt-4">ArticleGate-Signup</p>     
+                          <form method="POST" class="mx-1 mx-md-4">
+                              {% csrf_token %}
                       
-      
-                        <form method="POST" class="mx-1 mx-md-4">
-                            {% csrf_token %}
-                    
-                            <div>
-                                <fieldset>
-                                    {{ form|crispy }}
-                                </fieldset>
-                            </div>
-                            <button type="submit" class="btn btn-light border">Signup</button>
-                        </form>
-                          Already have an account ?  <a href="{% url 'login' %}">Sign In</a> 
-                      
-      
+                              <div>
+                                  <fieldset>
+                                      {{ form|crispy }}
+                                  </fieldset>
+                              </div>
+                              <button type="submit" class="btn btn-light border">Signup</button>
+                          </form>
+                          
+                          <div class="mx-4 my-2 account">
+                            Already have an account ? <a href="{% url 'login' %}" class="mx-6">Sign In</a> 
+                          </div>
+                      </div>
                     </div>
                     <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
       

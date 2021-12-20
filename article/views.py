@@ -36,6 +36,9 @@ def tagName(request, tagname):
     return render(request, 'article/tag_search.html', context)
 
 
+def aboutus(request):
+    return render(request,'article/aboutus.html')
+
 def fullArticle(request,title,article_id):
     # print(article_id)
     # user = User.objects.get(id=request.user.pk)

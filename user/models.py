@@ -11,11 +11,11 @@ class Profile(models.Model):
     name = models.CharField(default="User", max_length=25)
     aboutme = models.CharField(default="", max_length=10000)
     phone_no = models.CharField(default="",max_length=13)
-    github = models.CharField(default="", max_length=100)
-    linkedin = models.CharField(default="", max_length=100)
-    twitter = models.CharField(default="", max_length=100)
-    instagram = models.CharField(default="", max_length=100)
-    website = models.CharField(default="", max_length=100)
+    github = models.CharField(default="https://github.com/", max_length=100)
+    linkedin = models.CharField(default="https://www.linkedin.com/feed/", max_length=100)
+    twitter = models.CharField(default="https://twitter.com/?lang=en", max_length=100)
+    instagram = models.CharField(default="https://www.instagram.com/", max_length=100)
+    website = models.CharField(default="https://iiitdwd.ac.in/", max_length=100)
     def __str__(self):
         return f'{self.user.username} Profile'
     

@@ -45,7 +45,7 @@
                     <h1 class="display-3 fw-bold">{{ post.title }}</h1>
                     <!-- <p class="col-md-8 fs-3">Written by : {{ post.author }}</p> -->
                     <a href="{% url 'article:viewProfile' post.author %}" style="text-decoration: none; color: black;"> <p class="col-md-8 fs-3">Written by : {{ post.author }}</p> </a> 
-                    <p class="col-md-8 fs-6">{{ post.date_posted }}</p>
+                    <p class="col-md-8 fs-6">{{ post.date_posted|date:"F d, Y" }}</p>
                 </div>
             </div>
 

@@ -1,69 +1,4 @@
-<!-- <html>
-<head>
-<title>registration form</title>
-</head>
-<h2 ALIGN="CENTER">*~~~ WELCOME ~~~*</h2>
-<h2 ALIGN="CENTER">Registration form</h2>
-<h2 ALIGN="CENTER">!****Content Management Website****!</h2>
-<hr>
-
-<form action="Welcome.html" method="post">
-<table border="0" align="center">
-<tbody>
-
-<tr>
-<td><label for="Username">Username : </label></td>
-<td><input id="Username" maxlength="50" name="name" type="text" /></td>
-</tr>
-
-<tr>
-<td><label for="fname"> First Name: </label></td>
-<td><input id="fname" maxlength="50" name="name" type="text" /></td>
-</tr>
-<tr>
-<td><label for="lname"> Last Name: </label></td>
-<td><input id="lname" maxlength="50" name="name" type="text" /></td>
-</tr>
-<tr>
-<td><label for="dob"> Date Of Birth :</label></td>
-<td><input id="dob" type="date" name="dob"</td>
-</tr>
-
-<tr>
-    <td>  <p>Gender:</p>
-          <input type="radio" id="MALE" name="GENDER" value="MALE">
-          <label for="MALE">Male</label><br>
-          <input type="radio" id="FEMALE" name="GENDER" value="FEMALE">
-          <label for="FEMALE">Female</label><br>
-          <input type="radio" id="OTHER" name="GENDER" value="OTHER">
-          <label for="OTHER">Other</label>
-    </td>
-</tr>
-
-<tr>
-<td><label for="email">Email_Address:</label></td>
-<td><input id="email" maxlength="50" name="email" type="text" /></td>
-</tr>
-
-<tr>
-<td><label for="number">Mobile Number:</label></td>
-<td><input id="number" maxlength="50" name="number" type="number" /></td>
-</tr>
-
-<tr>
-<td><label for="aboutus">About:</label></td>
-<td valign="middle" align="center"><textarea rows="4" cols="35" name="aboutus"></textarea></td>
-</tr>
-
-<tr>
-<td align="right"><input name="Submit" type="Submit" value="Submit" /></td>
-</tr>
-
-</tbody>
-</table>
-</form>
-</html> -->
-{% load crispy_forms_tags %}
+<!-- {% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,53 +28,65 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
-</html>
+</html> -->
 
 
-
-<!-- 
-{% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signup</title>
-
-  <link rel="stylesheet" href="{% static 'user/style.css' %}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-  <div class="container" id="container">
-  	<div class="form-container sign-up-container">
-  		
-			<form method="POST">
-				{% csrf_token %}
-  			<h1>Create Account</h1>
-  			<div class="social-container">
-  				<a href="#" class="social"><i class="fa fa-facebook"></i></a>
-  				<a href="#" class="social"><i class="fa fa-google-plus"></i></a>
-  				<a href="#" class="social"><i class="fa fa-linkedin"></i></a>
-  			</div>
-  			<span>or use your email for registration</span>
-					{{ form|crispy }}
-			<button type="submit">
-				Signup
-			</button>
-			</form>
-			
-  	</div>
-  	<div class="overlay-container">
-  		<div class="overlay">
-  			<div class="overlay-panel overlay-left">
-  				<h1>Welcome Back!</h1>
-  				<p>To keep connected with us please login with your personal info</p>
-  				<button type="submit" class="ghost" id="signIn">
-						<a href="{% url 'login' %}">Sign In</a>
-					</button>
-  			</div>
-  	</div>
-  </div>
+
+    <section class="vh-90" style="background-color: rgb(255, 255, 255);">
+        <div class="container h-90">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12 col-xl-11">
+              <div class="card text-black" style="border-radius: 5px; border: 0px;">
+                <div class="card-body p-md-2">
+                  <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+      
+                      <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-1 mt-4">ArticleGate-Signup</p>
+      
+                      
+      
+                        <form method="POST" class="mx-1 mx-md-4">
+                            {% csrf_token %}
+                    
+                            <div>
+                                <fieldset>
+                                    {{ form|crispy }}
+                                </fieldset>
+                            </div>
+                            <button type="submit" class="btn btn-light border">Signup</button>
+                        </form>
+                          Already have an account ?  <a href="{% url 'login' %}">Sign In</a> 
+                      
+      
+                    </div>
+                    <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+      
+                      <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.png" class="img-fluid" alt="Sample image">
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
-</html> -->
+</html>
+
+

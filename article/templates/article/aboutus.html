@@ -7,22 +7,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"> -->
 </head>
 
-<body>
-
-  <header class="text-gray-600 body-font">
+<header class="text-gray-600 body-font">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href="{% url 'article:article-home' %}">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
           stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-pink-500 rounded-full"
           viewBox="0 0 24 24">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          <path d="M12 2L21 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
         </svg>
-        <a href="{% url 'article:article-home' %}"> <span class="ml-3 text-xl">Article Gate</span></a>
+        <span class="ml-3 text-xl">Article Gate</span>
       </a>
       <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-        <a class="mr-5 hover:text-gray-900">About us</a>
+        <a class="mr-5 hover:text-gray-900"  href="{% url 'article:article-aboutus' %}" > About us</a>
         <a class="mr-5 hover:text-gray-900">Notes </a>
         <!-- <a class="mr-5 hover:text-gray-900">Third Link</a>
             <a class="mr-5 hover:text-gray-900">Fourth Link</a> -->
@@ -31,7 +31,7 @@
         <div class="flex items-center border-b border-teal-500 py-1">
           <input
             class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-0 px-1 leading-tight focus:outline-none"
-            type="text" placeholder="Search" aria-label="Full name" name="query" id="query">
+            type="text" placeholder="Search" aria-label="Full name" name="query" id="search">
           <button
             class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-0 px-2 rounded"
             type="submit">
@@ -50,7 +50,7 @@
       </button>
       <button
         class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-        <a href="{% url 'login' %}">Logout</a>
+        <a href="{% url 'logout' %}">Logout</a>
         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
           class="w-4 h-4 ml-1" viewBox="0 0 24 24">
           <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -78,39 +78,27 @@
   </header>
 
 
-  <section class="text-gray-600 body-font overflow-hidden">
-    <div class="container px-5 py-24 mx-auto">
-      <div class="-my-8 divide-y-2 divide-gray-100">
 
-        <h3> <span style="font-weight: bold;"> Explore more about #{{ tagname }} </span></h3>
-        {% if list_tag_obj|length < 1 %} <p>It looks like there aren't many great matches for your search</p>
-          <p>Please search again</p>
-          {% endif %}
-          {% for post in list_tag_obj %}
-          <div class="py-8 flex flex-wrap md:flex-nowrap">
-            <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-              <span class="font-semibold title-font text-gray-700">CATEGORY</span>
-              <span class="mt-1 text-gray-500 text-sm">{{ post.author }}</span>
-            </div>
-            <div class="md:flex-grow">
-              <h2 class="text-2xl font-medium text-gray-900 title-font mb-2"><a
-                  href="{% url 'article:fullArticle' post.title post.id %}"> {{ post.title }}</a></h2>
-              <p class="leading-relaxed">{{ post.about|safe }}</p>
-              <a class="text-indigo-500 inline-flex items-center mt-4"
-                href="{% url 'article:fullArticle' post.title post.id %}">Read More
-                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
+
+
+
+
+<body>
+    <section class="text-gray-600 body-font">
+        <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+          <!-- <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600"> -->
+          <div class="text-center lg:w-2/3 w-full">
+            <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">ArticleGate</h1>
+            <p class="mb-8 leading-relaxed">Article Gate is a place to write, read, and connect.
+                It's easy and free to post your thinking on any topic and connect with thousands of readers. Article Gate is a community of thousands of  amazing writers, developers, poets and many more ...</p>
+            <div class="flex justify-center">
+                <a  href="{% url 'article:article-home' %}"">
+                    <button class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded text-lg">Explore</button>
+                </a>
+              <!-- <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg"></button> -->
             </div>
           </div>
-          {% endfor %}
-
-      </div>
-    </div>
-  </section>
+        </div>
+      </section>
 </body>
-
 </html>

@@ -196,23 +196,28 @@
                   <div class="card h-100">
                     <div class="card-body">
                       <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">List</i>My Articles</h6>
-                      <small>My Article 1</small>
+                      {% for art in arts %}
+                      <!-- <small>My Article 1</small> -->
+                      <small>{{ art.title }}</small>
                       <hr>
+                      {% empty %}
+                      <small>Nothing added yet.</small>
+                      {% endfor %}
                       <!-- <div class="progress mb-3" style="height: 5px">
                         <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                       </div> -->
-                      <small>My Article 2</small>
-                      <hr>
+                      <!-- <small>My Article 2</small>
+                      <hr> -->
                       <!-- <div class="progress mb-3" style="height: 5px">
                         <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
                       </div> -->
-                      <small>My Article 3</small>
-                      <hr>
+                      <!-- <small>My Article 3</small>
+                      <hr> -->
                       <!-- <div class="progress mb-3" style="height: 5px">
                         <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
                       </div> -->
-                      <small>My Article 4</small>
-                      <hr>
+                      <!-- <small>My Article 4</small>
+                      <hr> -->
                       <!-- <div class="progress mb-3" style="height: 5px">
                         <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
                       </div> -->

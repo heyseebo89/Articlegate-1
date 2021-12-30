@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login,logout
 from django.contrib import messages
 from .forms import UserRegistrationForm,UserUpdateForm, ProfileUpdateForm
+from article.models import Post
 # Create your views here.
 
 @login_required
@@ -32,8 +33,11 @@ def profile(request):
 def profileView(request):
     # user = User.objects.get(username=user_id)
     user = request.user
+    arts = user.post_set.all()[:4]
+    # print(type(user))
     context = {
-        'user' : user
+        'user' : user,
+        'arts':arts
     }
     return render(request, 'user/profileview.html',context)
 
